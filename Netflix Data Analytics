@@ -24,7 +24,7 @@ ORDER BY title ASC;
 --using left join
 
 SELECT
-director
+people.director
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
 LEFT JOIN  "CharlotteChaze/BreakIntoTech"."netflix_people" people
 ON titles.show_id=people.show_id
