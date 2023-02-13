@@ -39,7 +39,7 @@ WHERE type='Movie'
 ORDER BY release_year asc
 LIMIT 1;
 
---using AND, min()
+--using a subquery, min()
 SELECT title, release_year 
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
 WHERE type = 'Movie'
