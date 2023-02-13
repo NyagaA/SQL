@@ -18,7 +18,7 @@ FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info";
 
 SELECT title
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
-ORDER BY title asc;
+ORDER BY title ASC;
 
 #4. Who was the Director for the movie Bright Star? 
 --using left join
