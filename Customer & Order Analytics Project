@@ -1,3 +1,4 @@
+#In this SQLcode, I'm querying a database that holds Customer and Order data to answer questions asked about the data. 
 #1.How many orders were placed in January?
 
 SELECT COUNT(orderid)  
