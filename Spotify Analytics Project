@@ -32,7 +32,7 @@ time_signature integer NOT NULL )
 
 SELECT artist_name, track_name, AVG(danceability)
 FROM BIT_DB.Spotifydata
-GROUP BY artist_name, track_name
+GROUP BY artist_name, track_name;
 
 
 #2.Who are the top 10 artists based on popularity? 
@@ -40,25 +40,25 @@ GROUP BY artist_name, track_name
 SELECT artist_name, popularity
 FROM BIT_DB.Spotifydata
 ORDER BY popularity DESC
-LIMIT 10
+LIMIT 10;
 
 #3.Which artist released the longest song? 
 --a
 SELECT artist_name, track_name, duration_ms 
 FROM BIT_DB.Spotifydata
 GROUP BY track_name                    
-ORDER BY duration_ms DESC
-LIMIT 50
+ORDER BY duration_ms DESC;
 
 --b
 SELECT artist_name, track_name, duration_ms
 FROM BIT_DB.Spotifydata
 GROUP BY duration_ms                    
-ORDER BY duration_ms DESC
-LIMIT 50
+ORDER BY duration_ms DESC;
+
 
 
 #4.What is the average danceability for the 10 most popular songs?
+
 SELECT track_name, popularity, AVG(danceability)
 FROM BIT_DB.Spotifydata
 GROUP BY track_name
@@ -66,18 +66,20 @@ ORDER BY popularity DESC
 LIMIT 10
 
 
-#5.Determine the Top 10 artists are by popularity
+#5.Determine the Top 10 artists are by popularity.
+
 SELECT track_name, artist_name, popularity           
 FROM BIT_DB.spotifydata
 ORDER BY popularity desc
-LIMIT 10
+LIMIT 10;
 
 
 #6.First I determined the avg popularity, danceability, and energy by artist and track. 
+
 SELECT artist_name, track_name, 
 AVG(popularity), AVG(danceability), AVG(energy)
 FROM BIT_DB.spotifydata
-GROUP BY artist_name, track_name
+GROUP BY artist_name, track_name;
 
 #7.Calculate the average popularity for the artists in the Spotify data table. Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
 --USING CTE (Temporary Table)
