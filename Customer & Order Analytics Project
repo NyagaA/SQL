@@ -183,28 +183,3 @@ FROM BIT_DB.JanSales
 GROUP BY product
 ORDER BY SUM(quantity*price) DESC
 LIMIT 1
-
-#14.Calculate the average popularity for the artists in the Spotify data table. Then, for every artist with an average popularity of 90 or above, show their name, their average popularity, and label them as a “Top Star”.
---USING CTE (Temporary Table)
-WITH AVGPOP_CTE AS (                                           
-SELECT s.artist_name, 
-AVG(s.popularity) AS AveragePop
-FROM Spotifydata s
-GROUP BY s.artist_name
-)
-
-SELECT artist_name, 
-AveragePop,
-'Top Star' AS TAG
-FROM AVGPOP_CTE 
-WHERE AveragePop>=90
-ORDER BY AveragePop DESC;
-
---WITHOUT CTE
-SELECT artist_name, 
-AVG(popularity) AS AveragePop,
-'Top Star' AS TAG
-FROM BIT_DB.Spotifydata 
-GROUP BY artist_name
-HAVING AveragePop>=90
-ORDER BY AveragePop DESC;
