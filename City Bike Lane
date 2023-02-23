@@ -74,7 +74,8 @@ INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 SELECT * FROM BIT_DB.CityBikeLanes LIMIT 10
 
 #2. RESULT BELOW  SHOWS there were two different technicians who rated the bike street lanes individually.
-SELECT * FROM CityBikeLanes 
+SELECT * 
+FROM BIT_DB.CityBikeLanes 
 WHERE street='Walnut'      
 
 #3. RESULT SHOWING:
@@ -86,17 +87,17 @@ WHERE street='Walnut'
 SELECT street, 
 AVG(safetyrating) AS AvgSafe_rate,  
 'Safe Lane' AS TAG
-FROM CityBikeLanes
+FROM BIT_DB.CityBikeLanes
 GROUP BY street
 HAVING AvgSafe_rate>=4.0
 ORDER BY AvgSafe_rate DESC
 
-    #ANSWER 2a WITH CTE 
+    #ANSWER 2 WITH CTE 
 
 WITH AVGSAFETY_CTE AS (
 SELECT s.street,
 AVG(s.safetyrating) AS AvgSafe_rate
-FROM CityBikeLanes s
+FROM BIT_DB.CityBikeLanes s
 GROUP BY s.street
 )
 SELECT street,
@@ -106,24 +107,6 @@ FROM AVGSAFETY_CTE
 WHERE AvgSafe_rate>=4.0
 ORDER BY AvgSafe_rate DESC;
 
-    #ANSWER 3a WITH CTE 
-WITH safety_average_cte AS (
-SELECT street, AVG(safetyrating) as 'rating'
-FROM citybikelanes
-GROUP BY street
-) 
--- THE CODE BELOW THIS LINE IS THE CTE -- 
-WITH safety_average_cte AS (
-SELECT street, AVG(safetyrating) as 'rating'
-FROM citybikelanes
-GROUP BY street)
-
-SELECT                                      
-street,
-rating,
-'safe lane' as 'label'
-FROM safety_average_cte
-WHERE rating >=4
 
 #4. QUESTION:
     #The city has decided to remove the least safe bike lanes, make improvements on the bike lanes that are already somewhat safe, and leave the most safe bike lanes as-is. 
@@ -141,7 +124,7 @@ WHEN AVG(safetyrating) OVER (PARTITION BY street) >=4.0 THEN "Leave As-Is"      
 WHEN AVG(safetyrating) OVER (PARTITION BY street) <2.5 THEN "Remove"            #DO NOT USE ALIAS
 ELSE "Improvements Needed"
 END AS "Recommendation"
-FROM CityBikeLanes
+FROM BIT_DB.CityBikeLanes
 ORDER BY Average_safety_rating DESC                                             #ORDERED
 
 #ANSWER 2
@@ -151,5 +134,5 @@ CASE WHEN AVG(safetyrating) OVER (PARTITION BY street) >=4 THEN "Leave As-Is"
     WHEN AVG(safetyrating) OVER (PARTITION BY street) <2.5 THEN "Remove"
     ELSE "Improvements Needed"
     END AS "Recommendation"
-FROM CityBikeLanes
+FROM BIT_DB.CityBikeLanes
 
