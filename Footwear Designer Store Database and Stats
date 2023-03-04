@@ -27,7 +27,7 @@ SELECT * FROM footwear_designer;
 --ordering all items by price
 SELECT * FROM footwear_designer ORDER BY price;
 
---calsulating sum of all prices
+--calculating sum of all prices
 SELECT SUM(price) FROM footwear_designer;
 
 --displaying the name of the product with maximum price 
