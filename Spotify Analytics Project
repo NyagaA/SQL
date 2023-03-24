@@ -74,7 +74,7 @@ ORDER BY popularity desc
 LIMIT 10;
 
 
-#6.First I determined the avg popularity, danceability, and energy by artist and track. 
+#6.Determine the avg popularity, danceability, and energy by artist and track. 
 
 SELECT artist_name, track_name, 
 AVG(popularity), AVG(danceability), AVG(energy)
