@@ -24,7 +24,7 @@ duration_ms integer NOT NULL,
 time_signature integer NOT NULL )
 
 
-#Inserted the Spotify Data .csv nto the Spotifydata Table
+#Inserted the Spotify Data .csv into the Spotifydata Table
 
 
 #Querying the Database using SQL
