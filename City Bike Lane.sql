@@ -1,4 +1,4 @@
-#TABLE CREATION
+--TABLE CREATION
 CREATE TABLE BIT_DB.CityBikeLanes (
 id integer primary key,
 year_installed year not null,
@@ -8,7 +8,7 @@ width_feet integer not null,
 safetyrating integer not null,
 protected varchar not null)
 
-#INSERTING DATA INTO THE TABLE
+--INSERTING DATA INTO THE TABLE
 INSERT INTO BIT_DB.CityBikeLanes values(1,2012, 2020, "Chestnut",4,4,"yes");
 INSERT INTO BIT_DB.CityBikeLanes values(2,2016, 2020,"Walnut",4,3.8,"yes");
 INSERT INTO BIT_DB.CityBikeLanes values(3,2011, 2020, "Market", 3.5, 2, "no");
@@ -70,20 +70,20 @@ INSERT INTO BIT_DB.CityBikeLanes values(58,2011, 2021, "Beaver", 3.5, 2.5, "no")
 INSERT INTO BIT_DB.CityBikeLanes values(59,2008, 2021,"Kensington",4,4.9,"yes");
 INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 
-#1. Get an overview of the data in 10 rows of the entire table
+--1. Get an overview of the data in 10 rows of the entire table
 SELECT * FROM BIT_DB.CityBikeLanes LIMIT 10
 
-#2. RESULT BELOW  SHOWS there were two different technicians who rated the bike street lanes individually.
+--2. RESULT BELOW  SHOWS there were two different technicians who rated the bike street lanes individually.
 SELECT * 
 FROM BIT_DB.CityBikeLanes 
 WHERE street='Walnut'      
 
-#3. RESULT SHOWING:
+--3. RESULT SHOWING:
     #list of all the bike lanes that have an average safety rating of 4.0 or higher
     #average safety rating for each of those bike lanes
     #label that says "Safe Lane"
     
-    #ANSWER 1 WITHOUT CTE
+    --ANSWER 1 WITHOUT CTE
 SELECT street, 
 AVG(safetyrating) AS AvgSafe_rate,  
 'Safe Lane' AS TAG
@@ -92,7 +92,7 @@ GROUP BY street
 HAVING AvgSafe_rate>=4.0
 ORDER BY AvgSafe_rate DESC
 
-    #ANSWER 2 WITH CTE 
+    --ANSWER 2 WITH CTE 
 
 WITH AVGSAFETY_CTE AS (
 SELECT s.street,
@@ -108,14 +108,14 @@ WHERE AvgSafe_rate>=4.0
 ORDER BY AvgSafe_rate DESC;
 
 
-#4. QUESTION:
-    #The city has decided to remove the least safe bike lanes, make improvements on the bike lanes that are already somewhat safe, and leave the most safe bike lanes as-is. 
-    #You need to give your boss the list of all the bike lanes 
-    #Both safety ratings for each lane given by the two technicians
-    #The average safety rating for each lane
-    #A label with the recommendation as "Remove", "Leave As-Is", or "Improvements Needed".
+--4. QUESTION:
+    --The city has decided to remove the least safe bike lanes, make improvements on the bike lanes that are already somewhat safe, and leave the most safe bike lanes as-is. 
+    --You need to give your boss the list of all the bike lanes 
+    --Both safety ratings for each lane given by the two technicians
+    --The average safety rating for each lane
+    --A label with the recommendation as "Remove", "Leave As-Is", or "Improvements Needed".
 
-#ANSWER 1
+--ANSWER 1
 
 SELECT street, safetyrating,
 AVG(safetyrating) OVER (PARTITION BY street) AS "Average_safety_rating",
