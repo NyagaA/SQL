@@ -1,3 +1,5 @@
+	--Used the Nashville Housing Dataset to demonstrate data cleaning using SQL.
+		
 --1. STANDARDIZING DATE FORMAT OF SALESDATE COLUMN
 	--Method 1
 		 SELECT SaleDate, CONVERT(Date, SaleDate)
