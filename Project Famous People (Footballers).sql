@@ -1,4 +1,4 @@
---create table footballers
+--Create table footballers
 CREATE TABLE footballers (
     Id INTEGER PRIMARY KEY AUTOINCREMENT,
     Fullname TEXT,
