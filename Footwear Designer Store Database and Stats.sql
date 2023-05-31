@@ -1,4 +1,4 @@
---Create a footwear designer database
+#Create a footwear designer database
 
 CREATE TABLE footwear_designer (id INTEGER PRIMARY KEY,productname TEXT, size INTEGER, quantity INTEGER, price INTEGER, aisle INTEGER);
 
