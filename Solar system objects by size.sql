@@ -51,54 +51,54 @@ INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_
 INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_rel,mass,mass_rel,density,surface_gravity,surface_gravity_rel,type_of_object,shape) VALUES ('Tethys ',531.1,0.083,0.624,0.0006,0.6173,0.000103,0.984,0.145,0.015,'satellite of Saturn','round');
 INSERT INTO solar_system_objects(body,mean_radius,mean_radius_rel,volume,volume_rel,mass,mass_rel,density,surface_gravity,surface_gravity_rel,type_of_object,shape) VALUES ('Ceres ',476.2,0.076,0.437,0.0004,0.95,0.000159,2.077,0.27,0.0275,'dwarf planet belt asteroid','round');
 
-#1.This query selects all columns (* denotes all) from the table solar_system_objects.
+--1. Selecting all columns (* denotes all) from the table solar_system_objects.
 
 SELECT * 
 FROM solar_system_objects;
 
-#2. This query selects the minimum value of the volume column from the table solar_system_objects.
+--2. Selecting the minimum value of the volume column from the table solar_system_objects.
 
 SELECT MIN(volume) 
 FROM solar_system_objects;
 
-#3. This query selects the minimum value of the volume column from the table solar_system_objects.
+--3. Selecting the minimum value of the volume column from the table solar_system_objects.
 
 SELECT AVG(volume) 
 AS "avg_volume" 
 FROM solar_system_objects;
 
-#4. This query selects the body and volume columns from the table solar_system_objects where the volume is greater than 500000, and groups the results by volume.
+--4. Selecting the body and volume columns from the table solar_system_objects where the volume is greater than 500000, and groups the results by volume.
 
 SELECT body, volume 
 FROM solar_system_objects 
 WHERE volume > 500000
 GROUP BY volume;
 
-#5. This query selects the body, mean_radius, and mean_radius_rel columns from the table solar_system_objects where either the shape is "round" or the mean_radius is less than 1000.
+--5. Selecting the body, mean_radius, and mean_radius_rel columns from the table solar_system_objects where either the shape is "round" or the mean_radius is less than 1000.
 
 SELECT body, mean_radius, mean_radius_rel
 FROM solar_system_objects 
 WHERE (shape = "round" OR mean_radius < 1000);
 
-#6. This query selects all columns from the table solar_system_objects where the mass is greater than 50000, density is greater than 1, and surface_gravity is greater than 0.5.
+--6. Selecting all columns from the table solar_system_objects where the mass is greater than 50000, density is greater than 1, and surface_gravity is greater than 0.5.
 
 SELECT *
 FROM solar_system_objects 
 WHERE (mass > 50000 AND density > 1 AND surface_gravity > 0.5);
 
-#7. This query selects the count of all rows from the table solar_system_objects where the type_of_object is "satellite of Jupiter".
+--7. Selecting the count of all rows from the table solar_system_objects where the type_of_object is "satellite of Jupiter".
 
 SELECT COUNT (*)
 FROM solar_system_objects 
 WHERE type_of_object = "satellite of Jupiter";
 
-#8. This query selects the body, type_of_object, shape, and average density column from the table solar_system_objects, and groups the results by type_of_object.
+--8. Selecting the body, type_of_object, shape, and average density column from the table solar_system_objects, and groups the results by type_of_object.
 
 SELECT body, type_of_object, shape, AVG(density) as "avg_density" 
 FROM solar_system_objects 
 GROUP BY type_of_object;
 
-#9. This query selects the count of all rows from the table solar_system_objects, and groups the results by the classification of the type_of_object. 
+--9. Selecting the count of all rows from the table solar_system_objects, and groups the results by the classification of the type_of_object. 
    #The classification is defined using a CASE statement that categorizes the type_of_object as "Planet", "satellite", "Star", or "other_solar_system_object" based on certain keywords in the type_of_object string.
 
 SELECT COUNT (*),
@@ -110,8 +110,3 @@ SELECT COUNT (*),
     END as "solar_system_objects_classification"
 FROM solar_system_objects 
 GROUP BY solar_system_objects_classification;
-
-
-
-
-
