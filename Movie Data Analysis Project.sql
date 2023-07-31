@@ -1,7 +1,41 @@
 /*I downloaded the movies.csv dataset and imported it to Microsoft SQL Server Management Studio.
-I was given the business requirements to satisfy, which I did by answering the questions below.*/
+The project process included connecting, importing, and transforming our data in MS SQL Server to prepare it for analysis. 
+By querying the database and performing calculations in SQL, I gained insights to answer the business requirements. 
+Creating tables and connecting them to Excel enabled dynamic data visualization. 
+The results were presented with impactful codes and charts using PowerPoint.
 
-/****** Script for SelectTopNRows command from SSMS  ******/
+The requirements were as follows:
+1. What are the top 3 ratings for movies released in the United States?
+2. What are the Top 10 companies based on the number of movies?
+3. What are the Top 10 companies in the United Kingdom based on movie revenue? (released country)
+4. What are the Top 10 companies in the countries that begin with “I” based on movie revenue? (released country)
+5. What is the average movie time for movies in France and any country that contains Germany (released country)?
+6. As a single analyst, what is the average movie time for movies with titles that contain ‘love’?
+7. Which company has generated the most revenue? How much did they make in 2018?
+8. Which star has been featured in the most movies? What are the top 3 movie genres he or she has acted in?
+9. Which movie genre is most popular in India? What is the average revenue generated for this movie genre in India? (country of origin)
+10. How many movies start with a consonant letter?
+11. Code to extract released country from released column
+
+I first extracted the released country from the released column, then created a table named movies_data that I queried from.
+
+I was able to fulfill all of the requirements using SQL, and some of the findings from the analysis include:
+1· The R rating had the highest number of ratings with 3150 in the United States, followed by PG-13 with 2010 and PG with 1189.
+2· Universal Pictures produced the most movies 377, followed by Warner Bros. with 334 and Columbia Pictures with 332
+3· Warner Bros. generated the most revenue, $154,649,120, in the United Kingdom, followed by Film4 and Universal Pictures
+4· The top 10 companies by revenue in Countries starting with "I" are found in Italy, India, and Iran, with India having the most revenue
+5· Melampo Cinematografica in Italy and Rajkumar Hirani Films in India generated the most revenue in their respective countries
+6· The average movie time for France and Germany-containing countries is approximately 105.67 minutes. (France -105.31, Germany -107.43, West Germany -101)
+7· Movies with the word "love" in their title have an average runtime of approximately 106.33 minutes.
+8· Warner Bros. generated the most revenue, and in 2018, their revenue was $2,774,169,008.
+9· Nicolas Cage has appeared in the most movies, with 43 credits.
+   His top three genres are Action, Comedy, and Crime, having featured 17, 10, and 6 times, respectively
+10· Action is the most popular movie genre in India, averaging a revenue of $45,711,569.55
+11· A total of 6,634 movies start with a consonant letter
+*/
+
+				/***** QUERIES *****/
+--Script for SelectTopNRows command from SSMS  
 SELECT TOP (1000) [name]
       ,[rating]
       ,[genre]
