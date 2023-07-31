@@ -1,8 +1,6 @@
 /*I downloaded the movies.csv dataset and imported it to Microsoft SQL Server Management Studio.
-The project process included connecting, importing, and transforming our data in MS SQL Server to prepare it for analysis. 
-By querying the database and performing calculations in SQL, I gained insights to answer the business requirements. 
-Creating tables and connecting them to Excel enabled dynamic data visualization. 
-The results were presented with impactful codes and charts using PowerPoint.
+The project process included connecting, importing, and transforming our data in MS SQL Server to prepare it for analysis.
+By querying the database and performing calculations in SQL, I gained insights to answer the business requirements.
 
 The requirements were as follows:
 1. What are the top 3 ratings for movies released in the United States?
