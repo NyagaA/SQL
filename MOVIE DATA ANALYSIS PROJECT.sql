@@ -1,5 +1,5 @@
-/*I downloaded the movies.csv dataset and imported it to Microsoft SQL Server.
-I was given the business requirements to satisfy which I did by answering the questions below.*/
+/*I downloaded the movies.csv dataset and imported it to Microsoft SQL Server Management Studio.
+I was given the business requirements to satisfy, which I did by answering the questions below.*/
 
 /****** Script for SelectTopNRows command from SSMS  ******/
 SELECT TOP (1000) [name]
