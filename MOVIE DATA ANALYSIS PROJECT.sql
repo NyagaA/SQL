@@ -43,14 +43,14 @@ FROM movies_data;
     GROUP BY rating
     ORDER BY COUNT(rating) DESC;
 
-    -- creating movie_rating table
+    		-- creating movie_rating table
 		SELECT TOP (3) rating
-    ,COUNT(rating) AS UnitedStates_rating
-    INTO movie_rating
-    FROM movies_data
-    WHERE released_country = 'United States'
-    GROUP BY rating
-    ORDER BY COUNT(rating) DESC;
+		,COUNT(rating) AS UnitedStates_rating
+		INTO movie_rating
+		FROM movies_data
+		WHERE released_country = 'United States'
+		GROUP BY rating
+		ORDER BY COUNT(rating) DESC;
 
 --5. What are the Top 10 companies based on number of movies?
     -- Top 10 companies based on number of movies
@@ -133,13 +133,13 @@ FROM movies_data;
     OR released_country LIKE '%Germany%'
     GROUP BY released_country;
     
-    -- Creating table France_Germany_group
-    SELECT released_country, ROUND(AVG(runtime),2) average_movie_time
-    INTO France_Germany_group
-    FROM movies_data
-    WHERE released_country = 'France'
-    OR released_country LIKE '%Germany%'
-    GROUP BY released_country;
+		-- Creating table France_Germany_group
+		SELECT released_country, ROUND(AVG(runtime),2) average_movie_time
+		INTO France_Germany_group
+		FROM movies_data
+		WHERE released_country = 'France'
+		OR released_country LIKE '%Germany%'
+		GROUP BY released_country;
 
 --9. As a single analyst, what is the average movie time for movies with title that contain ‘love’?
     -- Average movie time for movies with title that contain 'love'
@@ -171,15 +171,15 @@ FROM movies_data;
     GROUP BY company
     ORDER BY Total_revenue DESC;
 
-			-- Creating Warner Bros. table
+		-- Creating Warner Bros. table
 		SELECT company
-    , SUM(gross) AS Total_revenue
-    INTO Warner_Bros
-    FROM movies_data
-    WHERE company = 'Warner Bros.'
-    AND year = 2018
-    GROUP BY company
-    ORDER BY Total_revenue DESC;
+		, SUM(gross) AS Total_revenue
+		INTO Warner_Bros
+		FROM movies_data
+		WHERE company = 'Warner Bros.'
+		AND year = 2018
+		GROUP BY company
+		ORDER BY Total_revenue DESC;
 
 		
 
@@ -268,8 +268,8 @@ FROM movies_data;
     FROM movies
     WHERE LEFT(name, 1) NOT IN ('A', 'E', 'I', 'O', 'U');
 
-    -- Creating consonant_movies table
-    SELECT COUNT(*) AS consonant_movies
-    INTO consonant_movies
-    FROM movies
-    WHERE UPPER(LEFT(name, 1)) NOT IN ('A', 'E', 'I', 'O', 'U');
+		-- Creating consonant_movies table
+		SELECT COUNT(*) AS consonant_movies
+		INTO consonant_movies
+		FROM movies
+		WHERE UPPER(LEFT(name, 1)) NOT IN ('A', 'E', 'I', 'O', 'U');
